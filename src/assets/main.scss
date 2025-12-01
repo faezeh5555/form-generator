@@ -1,0 +1,185 @@
+/*******************************|variables|*************/
+$color-gray-light:rgb(238,242,238);
+$color-gray-light-2:rgb(245, 245, 245);
+
+$color-gray:rgb(217, 211, 211);
+$color-gray-dark:rgb(150, 150, 150);
+$color-white:rgb(255,255,255);
+
+
+$color-black:rgb(0,0,0);
+$color-green:rgb(103, 214, 188);
+/*******************************|tags|***********************/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+a{
+  text-decoration: none;
+}
+body{
+    background-color: $color-gray-light;
+
+}
+ul{
+  list-style: none;
+}
+/*******************************|general-class|****************/
+.middle{
+  max-width: 1400px;
+  margin:0 auto;
+  padding: 0 30px;
+}
+
+
+/*******************************|layout|**********************/
+header{
+  width:100%;
+  height: 60px;
+  padding: 10px 0px;
+  margin-bottom: 1px;
+  background-color: $color-green;
+  box-shadow: 0 2px 4px 0px $color-gray;
+
+  div.middle{
+    height: 100%;
+
+    ul{
+      height: 100%;
+      display: flex;
+      gap:15px;
+      align-items: center;
+
+      li{
+        cursor: pointer;
+
+        a{
+          color: $color-black;
+        }
+      }
+    }
+
+  }
+}
+/*******************************|main|************************/
+main.form-creator{
+  display: grid;
+  grid-template: "form palet" /1fr 400px;
+
+  /*********************|section-form-area|******/
+  section.form-area{
+    padding:40px 0px;
+    grid-area: form;
+    display: flex;
+    justify-content: center;
+
+      .form-zone {
+        width: 700px;
+        min-height: 600px;
+        display:inline-block;
+        position: relative;
+        background-color: $color-white;
+        box-shadow: 0 0 8px $color-gray;
+        border-radius: 7px;
+
+        input{
+          &[type="text"], &[type="number"], &[type="color"]{
+            width: 240px;
+            height: 35px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border: 2px solid $color-gray;
+            border-radius: 5px;
+            cursor: pointer;
+            color: $color-gray-dark;
+
+            &:focus{
+              outline: 2px solid $color-green;
+              border: none;            
+            }
+          }
+        }
+
+      }
+  }
+  
+  /*********************|section-palet-zone|******/
+  section.palet-zone{
+    height: 100vh;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    grid-area: palet;
+    background-color: $color-white;
+    box-shadow: 0 6px 4px 0px $color-gray;
+
+    div.title{
+      padding: 10px 5px;
+      background-color: $color-gray-light-2;
+    }
+    &>ul{
+      display: flex;
+      flex-direction: column;
+
+      &>li{
+        width:100%;
+        padding: 10px 15px;
+
+        display: grid;
+        grid-template: 
+          "drag-el icon" auto
+          "sub-validation sub-validation" auto / 1fr 30px;
+          gap:20px;
+        border-bottom: 1px solid $color-gray-light;
+
+        .drag-el{
+          width:160px;
+          height: 40px;
+          padding: 5px 8px;
+          background-color: $color-gray-light;
+          border-radius: 5px;
+          cursor: pointer;
+          grid-area: drag-el;
+          display: flex;
+          align-items: center;
+          color: $color-black;
+        }
+        .icon{
+          grid-area: icon;
+          cursor: pointer;
+
+          i{
+            color: $color-black;
+          }
+        }
+        .sub-validation{
+          grid-area: sub-validation;
+
+          &>li{
+            margin-bottom: 8px;
+
+            label{
+              margin-right: 10px;
+            }
+
+            input[type="text"]{
+              width: 110px;
+              padding: 3px 5px;
+              background-color: $color-gray-light;
+              border: none;
+              border-radius: 7px;
+            }
+
+            input[type="checkbox"]{
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

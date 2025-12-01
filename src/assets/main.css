@@ -1,0 +1,154 @@
+/*******************************|variables|*************/
+/*******************************|tags|***********************/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(238, 242, 238);
+}
+
+ul {
+  list-style: none;
+}
+
+/*******************************|general-class|****************/
+.middle {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/*******************************|layout|**********************/
+header {
+  width: 100%;
+  height: 60px;
+  padding: 10px 0px;
+  margin-bottom: 1px;
+  background-color: rgb(103, 214, 188);
+  box-shadow: 0 2px 4px 0px rgb(217, 211, 211);
+}
+header div.middle {
+  height: 100%;
+}
+header div.middle ul {
+  height: 100%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+header div.middle ul li {
+  cursor: pointer;
+}
+header div.middle ul li a {
+  color: rgb(0, 0, 0);
+}
+
+/*******************************|main|************************/
+main.form-creator {
+  display: grid;
+  grid-template: "form palet"/1fr 400px;
+  /*********************|section-form-area|******/
+  /*********************|section-palet-zone|******/
+}
+main.form-creator section.form-area {
+  padding: 40px 0px;
+  grid-area: form;
+  display: flex;
+  justify-content: center;
+}
+main.form-creator section.form-area .form-zone {
+  width: 700px;
+  min-height: 600px;
+  display: inline-block;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 8px rgb(217, 211, 211);
+  border-radius: 7px;
+}
+main.form-creator section.form-area .form-zone input[type=text], main.form-creator section.form-area .form-zone input[type=number], main.form-creator section.form-area .form-zone input[type=color] {
+  width: 240px;
+  height: 35px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 2px solid rgb(217, 211, 211);
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(150, 150, 150);
+}
+main.form-creator section.form-area .form-zone input[type=text]:focus, main.form-creator section.form-area .form-zone input[type=number]:focus, main.form-creator section.form-area .form-zone input[type=color]:focus {
+  outline: 2px solid rgb(103, 214, 188);
+  border: none;
+}
+main.form-creator section.palet-zone {
+  height: 100vh;
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  grid-area: palet;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 6px 4px 0px rgb(217, 211, 211);
+}
+main.form-creator section.palet-zone div.title {
+  padding: 10px 5px;
+  background-color: rgb(245, 245, 245);
+}
+main.form-creator section.palet-zone > ul {
+  display: flex;
+  flex-direction: column;
+}
+main.form-creator section.palet-zone > ul > li {
+  width: 100%;
+  padding: 10px 15px;
+  display: grid;
+  grid-template: "drag-el icon" auto "sub-validation sub-validation" auto/1fr 30px;
+  gap: 20px;
+  border-bottom: 1px solid rgb(238, 242, 238);
+}
+main.form-creator section.palet-zone > ul > li .drag-el {
+  width: 160px;
+  height: 40px;
+  padding: 5px 8px;
+  background-color: rgb(238, 242, 238);
+  border-radius: 5px;
+  cursor: pointer;
+  grid-area: drag-el;
+  display: flex;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+main.form-creator section.palet-zone > ul > li .icon {
+  grid-area: icon;
+  cursor: pointer;
+}
+main.form-creator section.palet-zone > ul > li .icon i {
+  color: rgb(0, 0, 0);
+}
+main.form-creator section.palet-zone > ul > li .sub-validation {
+  grid-area: sub-validation;
+}
+main.form-creator section.palet-zone > ul > li .sub-validation > li {
+  margin-bottom: 8px;
+}
+main.form-creator section.palet-zone > ul > li .sub-validation > li label {
+  margin-right: 10px;
+}
+main.form-creator section.palet-zone > ul > li .sub-validation > li input[type=text] {
+  width: 110px;
+  padding: 3px 5px;
+  background-color: rgb(238, 242, 238);
+  border: none;
+  border-radius: 7px;
+}
+main.form-creator section.palet-zone > ul > li .sub-validation > li input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+}/*# sourceMappingURL=main.css.map */
