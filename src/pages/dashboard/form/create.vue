@@ -18,6 +18,8 @@
           <input v-if="item.class == 'number' " v-model="item.value" type="number" placeholder="Enter number">
           <input v-if="item.class == 'color' " v-model="item.value" type="text" placeholder="Enter color">
           
+          <FmSelectOption v-if="item.class == 'select'" @selected-item-change="(newValue) => updateItemValue(item, newValue)" :items="item.options" :hasUserIcon="false" type="singleSelect"/>
+          <FmSelectOption v-if="item.class == 'multiSelect'" @selected-item-change="(newValue) => updateItemValue(item, newValue)" :items="item.options" :hasUserIcon="true" type="multiSelect"/>
           
       
       </li>
@@ -58,7 +60,10 @@
 
 
 <script>
+import FmSelectOption from '../../../components/FmSelectOption.vue';
+
 export default {
+  components:{FmSelectOption},
   data() {
     return {
       
@@ -66,6 +71,8 @@ export default {
         { id: 0, title: "Text input",class:"text", showSubValidation: false, type: "text", value: "",min:"",max:"",require:false },
         { id: 1, title: "Number input",class:"number", showSubValidation: false, type: "number", value: 0,min:"",max:"",require:false  },
         { id: 2, title: "Color input",class:"color", showSubValidation: false, type: "text", value: "",min:"",max:"",require:false  },
+        { id: 3, title: "Select input", class:"select", showSubValidation: false, type: "select", value: "", options: ["Option 1", "Option 2", "Option 3"],min:"",max:"",require:false },
+        { id: 3, title: "multiSelect input", class:"multiSelect", showSubValidation: false, type: "select", value: "", options: ["Option 1", "Option 2", "Option 3"],min:"",max:"",require:false }
       ],
       formItems: [],
       draggedItem: null, 
@@ -107,8 +114,15 @@ export default {
       //if we add item from palet zone then we need to create new item in formZone
       if (this.dragSource === 'palet'){
 
+        if(item.class == 'select' || item.class == 'multiSelect'){
+          const newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y ,options:item.options };
+          this.formItems.push(newItem);
+        }else{
           const newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y };
           this.formItems.push(newItem);
+        }
+         
+        
 
       //if we want just move item in formZone 
       } else if (this.draggedItem) {
@@ -124,7 +138,12 @@ export default {
     /**************|onclick| *******/
     onclick_showSubValidation(item){
       item.showSubValidation = !item.showSubValidation;
-    }
+    },
+
+
+    updateItemValue(item, newValue){
+       item.value = newValue;
+      }
   }
 };
 </script>

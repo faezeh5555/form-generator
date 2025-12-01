@@ -19,6 +19,147 @@ ul {
   list-style: none;
 }
 
+/*******************************|components|********************/
+.fm-select-option {
+  width: 100%;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: monospace;
+}
+.fm-select-option .input-wrapper {
+  height: 38px;
+  padding-left: 4px;
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgb(222, 226, 230);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+.fm-select-option .input-wrapper.two-columns {
+  grid-template-columns: 1fr 30px;
+}
+.fm-select-option .input-wrapper:focus {
+  outline: 1px solid rgb(103, 214, 188);
+}
+.fm-select-option .input-wrapper > i {
+  margin-right: 5px;
+  padding-right: 12px;
+  padding-left: 8px;
+  font-size: 15px;
+  color: rgb(103, 214, 188);
+  border-right: 1px solid rgb(222, 226, 230);
+}
+.fm-select-option .input-wrapper .arrow-button {
+  width: 100%;
+  height: 100%;
+  padding-right: 4px;
+  padding-left: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+}
+.fm-select-option .input-wrapper .arrow-button i {
+  display: inline-block;
+  font-size: 15px;
+  color: rgb(103, 214, 188);
+  text-align: center;
+}
+.fm-select-option .input-wrapper input {
+  height: 36px;
+  padding-right: 8px;
+  text-align: right;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.fm-select-option .input-wrapper input::-moz-placeholder {
+  color: rgb(100, 109, 119);
+  font-size: 14px;
+  text-align: left;
+}
+.fm-select-option .input-wrapper input::placeholder {
+  color: rgb(100, 109, 119);
+  font-size: 14px;
+  text-align: left;
+}
+.fm-select-option .selected-items {
+  min-height: 90px;
+  padding: 8px;
+  border-top: none;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border: 1px solid rgb(222, 226, 230);
+}
+.fm-select-option .selected-items li {
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: 5px;
+  background-color: rgb(103, 214, 188);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.fm-select-option .selected-items li .icon-wrapper {
+  width: 16px;
+  height: 16px;
+  padding: 4px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.fm-select-option .selected-items li .icon-wrapper i {
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+}
+.fm-select-option .items {
+  height: 90px;
+  overflow-y: scroll;
+  border: 1px solid rgb(222, 226, 230);
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: right;
+  font-size: 20px;
+}
+.fm-select-option .items li {
+  padding: 7px 12px;
+  color: rgb(84, 92, 100);
+  cursor: pointer;
+  text-align: left;
+  font-size: 15px;
+}
+.fm-select-option .items li.selected-item {
+  background-color: rgb(222, 226, 230);
+}
+.fm-select-option .items li:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(103, 214, 188);
+}
+.fm-select-option .items::-webkit-scrollbar-thumb {
+  width: 10px;
+  height: 12px;
+  background-color: rgb(84, 92, 100);
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.fm-select-option .items::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(84, 92, 100);
+}
+
 /*******************************|general-class|****************/
 .middle {
   max-width: 1400px;
@@ -73,7 +214,7 @@ main.form-creator section.form-area .form-zone {
   box-shadow: 0 0 8px rgb(217, 211, 211);
   border-radius: 7px;
 }
-main.form-creator section.form-area .form-zone input[type=text], main.form-creator section.form-area .form-zone input[type=number], main.form-creator section.form-area .form-zone input[type=color] {
+main.form-creator section.form-area .form-zone > li > input[type=text], main.form-creator section.form-area .form-zone > li > input[type=number], main.form-creator section.form-area .form-zone > li > input[type=color] {
   width: 240px;
   height: 35px;
   padding: 5px 10px;
@@ -83,7 +224,7 @@ main.form-creator section.form-area .form-zone input[type=text], main.form-creat
   cursor: pointer;
   color: rgb(150, 150, 150);
 }
-main.form-creator section.form-area .form-zone input[type=text]:focus, main.form-creator section.form-area .form-zone input[type=number]:focus, main.form-creator section.form-area .form-zone input[type=color]:focus {
+main.form-creator section.form-area .form-zone > li > input[type=text]:focus, main.form-creator section.form-area .form-zone > li > input[type=number]:focus, main.form-creator section.form-area .form-zone > li > input[type=color]:focus {
   outline: 2px solid rgb(103, 214, 188);
   border: none;
 }

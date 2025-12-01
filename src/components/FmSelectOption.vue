@@ -139,7 +139,7 @@ export default{
     watch: {
         selectedItems: {
             handler(new_items,old_items){
-            this.$emit("selectedItemChange",new_items);
+            this.$emit('selected-item-change',new_items);
             },
             deep: true
         }
