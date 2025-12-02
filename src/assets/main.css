@@ -160,6 +160,80 @@ ul {
   background-color: rgb(84, 92, 100);
 }
 
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.77);
+  z-index: 5;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-content {
+  width: 450px;
+  height: 240px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 2px 20px 1px;
+  background-color: rgb(255, 255, 255);
+  z-index: 10;
+  border-radius: 10px;
+}
+.modal .modal-content .modal-header {
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+.modal .modal-content .modal-header button {
+  background: transparent;
+  border: none;
+  font-size: 17px;
+  color: rgb(103, 214, 188);
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal .modal-content .modal-header span {
+  color: rgb(103, 214, 188);
+}
+.modal .modal-content .modal-body input {
+  width: 100%;
+  height: 35px;
+  margin-top: 15px;
+  padding: 5px 10px;
+  border: 2px solid rgb(217, 211, 211);
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(150, 150, 150);
+}
+.modal .modal-content .modal-body input:focus {
+  outline: 2px solid rgb(103, 214, 188);
+  border: none;
+}
+.modal .modal-content .modal-foot ul {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.modal .modal-content .modal-foot ul button {
+  width: 80px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(41, 40, 40);
+}
+.modal .modal-content .modal-foot ul button.green-btn {
+  background-color: rgb(103, 214, 188);
+}
+
 /*******************************|general-class|****************/
 .middle {
   max-width: 1400px;
@@ -189,7 +263,7 @@ header div.middle ul li {
   cursor: pointer;
 }
 header div.middle ul li a {
-  color: rgb(0, 0, 0);
+  color: rgb(41, 40, 40);
 }
 
 /*******************************|main|************************/
@@ -264,14 +338,14 @@ main.form-creator section.palet-zone > ul > li .drag-el {
   grid-area: drag-el;
   display: flex;
   align-items: center;
-  color: rgb(0, 0, 0);
+  color: rgb(41, 40, 40);
 }
 main.form-creator section.palet-zone > ul > li .icon {
   grid-area: icon;
   cursor: pointer;
 }
 main.form-creator section.palet-zone > ul > li .icon i {
-  color: rgb(0, 0, 0);
+  color: rgb(41, 40, 40);
 }
 main.form-creator section.palet-zone > ul > li .sub-validation {
   grid-area: sub-validation;
@@ -292,4 +366,77 @@ main.form-creator section.palet-zone > ul > li .sub-validation > li input[type=t
 main.form-creator section.palet-zone > ul > li .sub-validation > li input[type=checkbox] {
   width: 15px;
   height: 15px;
+}
+main.form-creator section.palet-zone button {
+  width: 160px;
+  height: 40px;
+  padding: 5px 8px;
+  background-color: rgb(103, 214, 188);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  color: rgb(41, 40, 40);
+  margin-left: 15px;
+}
+
+main.form-list {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0px 4px 0px rgb(217, 211, 211);
+  border-radius: 7px;
+}
+main.form-list section.form .title {
+  font-size: 20px;
+  color: rgb(41, 40, 40);
+  margin-bottom: 15px;
+}
+main.form-list section.form .table-container {
+  padding: 25px;
+  border-radius: 7px;
+}
+main.form-list section.form .table-container table.form-table {
+  width: 100%;
+  border-radius: 7px;
+  box-shadow: 0 0 8px 0px rgb(217, 211, 211);
+  border-bottom: 3px solid rgb(103, 214, 188);
+  border-collapse: collapse;
+}
+main.form-list section.form .table-container table.form-table tr {
+  border-bottom: 1px solid rgb(238, 242, 238);
+  text-align: left;
+  color: rgb(84, 92, 100);
+}
+main.form-list section.form .table-container table.form-table tr td {
+  text-align: left;
+  padding: 10px 30px;
+}
+main.form-list section.form .table-container table.form-table tr td > a {
+  width: 36px;
+  height: 36px;
+  padding: 5px;
+  margin-right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+main.form-list section.form .table-container table.form-table tr td > a i {
+  font-size: 20px;
+  color: rgb(167, 102, 167);
+}
+main.form-list section.form .table-container table.form-table thead {
+  background-color: rgb(103, 214, 188);
+}
+main.form-list section.form .table-container table.form-table thead tr {
+  font-size: 14px;
+}
+main.form-list section.form .table-container table.form-table thead tr th {
+  padding: 13px 30px;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+}
+main.form-list section.form .table-container table.form-table tbody tr:nth-child(even) {
+  background-color: rgb(238, 242, 238);
 }/*# sourceMappingURL=main.css.map */

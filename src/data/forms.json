@@ -1,0 +1,91 @@
+{
+  "form1": [
+    {
+      "id": 1,
+      "title": "Name",
+      "class": "text",
+      "value": "",
+      "x": 50,
+      "y": 50,
+      "require": false
+    },
+    {
+      "id": 2,
+      "title": "Age",
+      "class": "number",
+      "value": "",
+      "x": 50,
+      "y": 100,
+      "require": true
+    },
+    {
+      "id": 3,
+      "title": "Favorite Color",
+      "class": "color",
+      "value": "",
+      "x": 50,
+      "y": 150,
+      "require": false
+    }
+  ],
+  "form2": [
+    {
+      "id": 1,
+      "title": "Email",
+      "class": "text",
+      "value": "",
+      "x": 50,
+      "y": 50,
+      "require": true
+    },
+    {
+      "id": 2,
+      "title": "Phone",
+      "class": "text",
+      "value": "",
+      "x": 50,
+      "y": 100,
+      "require": false
+    },
+    {
+      "id": 3,
+      "title": "Gender",
+      "class": "select",
+      "value": "",
+      "x": 50,
+      "y": 150,
+      "options": ["Male", "Female"],
+      "require": false
+    }
+  ],
+  "form3": [
+    {
+      "id": 1,
+      "title": "Address",
+      "class": "text",
+      "value": "",
+      "x": 50,
+      "y": 50,
+      "require": true
+    },
+    {
+      "id": 2,
+      "title": "City",
+      "class": "text",
+      "value": "",
+      "x": 50,
+      "y": 100,
+      "require": false
+    },
+    {
+      "id": 3,
+      "title": "Country",
+      "class": "select",
+      "value": "",
+      "x": 50,
+      "y": 150,
+      "options": ["USA", "Canada"],
+      "require": false
+    }
+  ]
+}

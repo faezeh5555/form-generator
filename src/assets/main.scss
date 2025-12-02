@@ -8,8 +8,11 @@ $color-white:rgb(255,255,255);
 $color-font-gray: rgb(84, 92, 100);
 $color-border-gray-light:rgb(222, 226, 230);
 $color-font-gray-light:rgb(100,109,119);
-$color-black:rgb(0,0,0);
+$color-black:rgb(41, 40, 40);
 $color-green:rgb(103, 214, 188);
+
+$color-purple: rgb(167, 102, 167);
+$color-gray-dark-2: rgba(1,1,1,0.77);
 /*******************************|tags|***********************/
 *{
     box-sizing: border-box;
@@ -184,6 +187,95 @@ ul{
     }
 
 }
+.modal{
+    width:100%;
+    height:100%;
+    background-color: $color-gray-dark-2;
+    z-index: 5;
+    position: fixed;//when we use position:fixed then width get value properiate to viewport width not parent element
+    //the element is taken out of the normal document flow
+    //(so it’s not positioned relative to its parent anymore).and
+    //we have to position that with left & ...
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal-content{
+        width:450px;
+        height:240px;
+        padding:20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow:2px 2px 20px 1px;
+        background-color: $color-white;
+        z-index: 10;
+        border-radius: 10px;
+
+        .modal-header{
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $color-gray-light-2;
+
+            button{
+                background: transparent;
+                border: none;
+                font-size: 17px;
+                color: $color-green;
+                font-weight: bold;
+                cursor:pointer;
+            }
+            span{
+                color: $color-green;
+            }
+        }
+        .modal-body{
+
+          input{
+            width: 100%;
+            height: 35px;
+            margin-top: 15px;
+            padding: 5px 10px;
+            border: 2px solid $color-gray;
+            border-radius: 5px;
+            cursor: pointer;
+            color: $color-gray-dark;
+
+            &:focus{
+              outline: 2px solid $color-green;
+              border: none;         
+            }
+          }
+        }
+        .modal-foot{
+
+            ul{
+                display:flex;
+                justify-content: end;
+                gap:10px;
+                
+                button{
+                    width: 80px;
+                    height: 35px;
+                    border:none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    color: $color-black;   
+
+                    &.green-btn{
+                      background-color: $color-green;
+                    }
+                }
+            }
+
+        }
+    }
+}
 /*******************************|general-class|****************/
 .middle{
   max-width: 1400px;
@@ -341,5 +433,95 @@ main.form-creator{
         }
       }
     }
+    button{
+      width:160px;
+      height: 40px;
+      padding: 5px 8px;
+      background-color: $color-green;
+      border-radius: 5px;
+      cursor: pointer;
+      border:none;
+      color:$color-black;
+      margin-left: 15px;
+    }
   }
+}
+main.form-list{
+  margin-top: 40px;
+  padding: 30px;
+  background-color: $color-white;
+  box-shadow: 0 0px 4px 0px $color-gray;
+  border-radius: 7px;
+
+    section.form{
+
+      .title{
+          font-size: 20px;
+          color: $color-black;
+          margin-bottom: 15px;
+      }
+      .table-container{
+          padding: 25px;
+          border-radius: 7px;
+
+          table.form-table{
+            width: 100%;
+            border-radius: 7px;
+            box-shadow: 0 0 8px 0px $color-gray;
+            border-bottom: 3px solid $color-green;
+            border-collapse: collapse;
+
+            tr{
+                border-bottom: 1px solid $color-gray-light;
+                text-align: left;
+                color: $color-font-gray;
+
+                td{
+                    text-align: left;
+                    padding: 10px 30px;
+                }
+                td{
+
+                    &>a{
+                        width: 36px;
+                        height: 36px;
+                        padding: 5px;
+                        margin-right: 3px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 3px;
+                        cursor: pointer;
+
+                        i{
+                            font-size: 20px;
+                            color: $color-purple;
+                        }
+                    }
+                }
+                
+            }
+            thead{
+              background-color: $color-green;
+
+              tr{
+                  font-size: 14px;
+              
+                  th{
+                      padding: 13px 30px;
+                      color:$color-white;
+                      font-size: 17px;
+                  }
+              }
+            }
+            tbody{
+
+                tr:nth-child(even){
+                    background-color: $color-gray-light;
+                }
+            }
+
+          }
+      }
+    }
 }

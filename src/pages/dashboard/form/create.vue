@@ -23,7 +23,8 @@
           
       
       </li>
-    </ul>
+      </ul>
+
     </section>
     <!-------------------|section-palet-zone|------------->
     <section class="palet-zone" @dragenter.prevent @dragover.prevent>
@@ -35,11 +36,11 @@
           <div class="icon" @click="onclick_showSubValidation(item)"><i class="fa-jelly-fill fa-regular fa-angle-down"></i></div>
           
           <ul class="sub-validation" v-if="item.showSubValidation">
-            <li>
+            <li v-if="item.type == 'number'">
               <label for="">min</label>
               <input type="text" placeholder="" v-model="item.min">
             </li>
-            <li>
+            <li v-if="item.type == 'number' ">
               <label for="">max</label>
               <input type="text" placeholder="" v-model="item.max">
             </li>
@@ -51,8 +52,11 @@
         </li>
       </ul>
 
+      <button class="save-btn" @click="onclick_openSaveModal">Save Form</button>
     </section>
+    <modal v-show="showModal" @save-btn-clicked="onclick_saveForm" @close-modal="closeModal"/>
   </main>
+
 
 
 
@@ -61,23 +65,27 @@
 
 <script>
 import FmSelectOption from '../../../components/FmSelectOption.vue';
+import modal from "../../../components/modal.vue";
 
 export default {
-  components:{FmSelectOption},
+  components:{FmSelectOption, modal},
+
   data() {
     return {
       
       paletItems: [
-        { id: 0, title: "Text input",class:"text", showSubValidation: false, type: "text", value: "",min:"",max:"",require:false },
+        { id: 0, title: "Text input",class:"text", showSubValidation: false, type: "text", value: "",require:false },
         { id: 1, title: "Number input",class:"number", showSubValidation: false, type: "number", value: 0,min:"",max:"",require:false  },
-        { id: 2, title: "Color input",class:"color", showSubValidation: false, type: "text", value: "",min:"",max:"",require:false  },
-        { id: 3, title: "Select input", class:"select", showSubValidation: false, type: "select", value: "", options: ["Option 1", "Option 2", "Option 3"],min:"",max:"",require:false },
-        { id: 3, title: "multiSelect input", class:"multiSelect", showSubValidation: false, type: "select", value: "", options: ["Option 1", "Option 2", "Option 3"],min:"",max:"",require:false }
+        { id: 2, title: "Color input",class:"color", showSubValidation: false, type: "text", value: "",require:false  },
+        { id: 3, title: "Select input", class:"select", showSubValidation: false, type: "select", value: "", options: ["Option 1", "Option 2", "Option 3"],require:false },
+        { id: 3, title: "multiSelect input", class:"multiSelect", showSubValidation: false, type: "select", value: "", options: ["Option 1", "Option 2", "Option 3"],require:false }
       ],
       formItems: [],
       draggedItem: null, 
       dragSource: null,
       showSubValidation:false,
+      showModal:false,
+      formName:""
     };
   },
   methods: {
@@ -113,17 +121,27 @@ export default {
 
       //if we add item from palet zone then we need to create new item in formZone
       if (this.dragSource === 'palet'){
-
-        if(item.class == 'select' || item.class == 'multiSelect'){
-          const newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y ,options:item.options };
+          let newItem = {};
+          switch(item.class){
+            case 'number':
+               newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y ,min:item.min,max:item.max,require:item.require};
+              break;
+            case 'text':
+               newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y, require:item.require };
+              break;
+            case 'color':
+              newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y, require:item.require };
+              break;
+            case 'select':
+               newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y, options:item.options ,require:item.require };
+              break;
+            case 'multiSelect':
+              newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y ,options:item.options, require:item.require };
+              break;
+          }
           this.formItems.push(newItem);
-        }else{
-          const newItem = {id: item.id, title: item.title, class: item.class ,type: item.type, value: item.value, x: x, y: y };
-          this.formItems.push(newItem);
-        }
-         
         
-
+         
       //if we want just move item in formZone 
       } else if (this.draggedItem) {
         
@@ -140,10 +158,24 @@ export default {
       item.showSubValidation = !item.showSubValidation;
     },
 
-
+    onclick_openSaveModal(){
+      this.showModal= true
+    },
     updateItemValue(item, newValue){
-       item.value = newValue;
-      }
+      item.value = newValue;
+    },
+    closeModal(){
+      this.showModal= false
+    },
+    onclick_saveForm(name){
+      this.formName = name
+      this.showModal= false
+      this.$store.commit('saveForm', {
+        formName: this.formName,
+        formItems: this.formItems
+      });
+      console.log(this.formItems);
+    }
   }
 };
 </script>
