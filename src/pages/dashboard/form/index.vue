@@ -7,7 +7,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Edit</th>
+                            <th>view</th>
                             <th>delete</th>
 
                         </tr>
@@ -15,8 +15,8 @@
                     <tbody>
                         <tr v-for="(formItems, formName) in savedForms" :key="formName">
                             <td>{{ formName }}</td>
-                            <td><router-link to="/"><i class="fa-solid fa-pen-to-square"></i></router-link></td>
-                            <td><a  to=""><i class="fa-solid fa-trash"></i></a></td>
+                            <td><router-link :to="`/form/view/${formName}`"><i class="fa-solid fa-eye"></i></router-link></td>
+                            <td @click="onClick_deleteForm(formName)"><a ><i class="fa-solid fa-trash"></i></a></td>
                         </tr>
                     </tbody>
                     <tfoot></tfoot>
@@ -30,6 +30,11 @@ export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        onClick_deleteForm(formName){
+            this.$store.commit('deleteForm', formName);
         }
     },
     computed:{

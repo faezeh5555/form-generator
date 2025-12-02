@@ -439,4 +439,36 @@ main.form-list section.form .table-container table.form-table thead tr th {
 }
 main.form-list section.form .table-container table.form-table tbody tr:nth-child(even) {
   background-color: rgb(238, 242, 238);
+}
+
+main.form-view {
+  /*********************|section-form-area|******/
+}
+main.form-view section.form-area {
+  padding: 40px 0px;
+  display: flex;
+  justify-content: center;
+}
+main.form-view section.form-area .form-zone {
+  width: 700px;
+  min-height: 600px;
+  display: inline-block;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 8px rgb(217, 211, 211);
+  border-radius: 7px;
+}
+main.form-view section.form-area .form-zone > li > input[type=text], main.form-view section.form-area .form-zone > li > input[type=number], main.form-view section.form-area .form-zone > li > input[type=color] {
+  width: 240px;
+  height: 35px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 2px solid rgb(217, 211, 211);
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(150, 150, 150);
+}
+main.form-view section.form-area .form-zone > li > input[type=text]:focus, main.form-view section.form-area .form-zone > li > input[type=number]:focus, main.form-view section.form-area .form-zone > li > input[type=color]:focus {
+  outline: 2px solid rgb(103, 214, 188);
+  border: none;
 }/*# sourceMappingURL=main.css.map */

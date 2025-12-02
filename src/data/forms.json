@@ -34,8 +34,8 @@
       "title": "Email",
       "class": "text",
       "value": "",
-      "x": 50,
-      "y": 50,
+      "x": 200,
+      "y": 300,
       "require": true
     },
     {
@@ -43,7 +43,7 @@
       "title": "Phone",
       "class": "text",
       "value": "",
-      "x": 50,
+      "x": 400,
       "y": 100,
       "require": false
     },
@@ -64,8 +64,8 @@
       "title": "Address",
       "class": "text",
       "value": "",
-      "x": 50,
-      "y": 50,
+      "x": 190,
+      "y": 240,
       "require": true
     },
     {
@@ -73,8 +73,8 @@
       "title": "City",
       "class": "text",
       "value": "",
-      "x": 50,
-      "y": 100,
+      "x": 190,
+      "y": 300,
       "require": false
     },
     {

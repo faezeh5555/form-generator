@@ -525,3 +525,42 @@ main.form-list{
       }
     }
 }
+main.form-view{
+  /*********************|section-form-area|******/
+  section.form-area{
+    padding:40px 0px;
+    display: flex;
+    justify-content: center;
+
+      .form-zone {
+        width: 700px;
+        min-height: 600px;
+        display:inline-block;
+        position: relative;
+        background-color: $color-white;
+        box-shadow: 0 0 8px $color-gray;
+        border-radius: 7px;
+
+        &>li{
+                  &>input{
+          &[type="text"], &[type="number"], &[type="color"]{
+            width: 240px;
+            height: 35px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border: 2px solid $color-gray;
+            border-radius: 5px;
+            cursor: pointer;
+            color: $color-gray-dark;
+
+            &:focus{
+              outline: 2px solid $color-green;
+              border: none;         
+            }
+          }
+        }
+        }
+
+      }
+  }
+}
