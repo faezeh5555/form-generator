@@ -440,6 +440,23 @@ main.form-list section.form .table-container table.form-table thead tr th {
 main.form-list section.form .table-container table.form-table tbody tr:nth-child(even) {
   background-color: rgb(238, 242, 238);
 }
+main.form-list section.form .table-container table.form-table tfoot tr td {
+  display: flex;
+  gap: 15px;
+}
+main.form-list section.form .table-container table.form-table tfoot tr td button {
+  border: none;
+  background-color: transparent;
+  color: rgb(103, 214, 188);
+  cursor: pointer;
+}
+main.form-list section.form .table-container table.form-table tfoot tr td button i {
+  font-size: 22px;
+}
+main.form-list section.form .table-container table.form-table tfoot tr td button:disabled {
+  color: rgb(217, 211, 211);
+  cursor: not-allowed;
+}
 
 main.form-view {
   /*********************|section-form-area|******/

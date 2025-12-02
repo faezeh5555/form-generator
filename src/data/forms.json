@@ -87,5 +87,35 @@
       "options": ["USA", "Canada"],
       "require": false
     }
+  ],
+  "form4": [
+    {
+      "id": 1,
+      "title": "Address",
+      "class": "text",
+      "value": "",
+      "x": 190,
+      "y": 40,
+      "require": true
+    },
+    {
+      "id": 2,
+      "title": "City",
+      "class": "text",
+      "value": "",
+      "x": 190,
+      "y": 40,
+      "require": false
+    },
+    {
+      "id": 3,
+      "title": "Country",
+      "class": "select",
+      "value": "",
+      "x": 50,
+      "y": 150,
+      "options": ["USA", "Canada"],
+      "require": false
+    }
   ]
 }

@@ -520,6 +520,32 @@ main.form-list{
                     background-color: $color-gray-light;
                 }
             }
+            tfoot{
+              
+              tr{
+
+                td{
+                  display: flex;
+                  gap:15px;
+
+                  button{
+                    border: none;
+                    background-color: transparent;
+                    color: $color-green;
+                    cursor: pointer;
+
+                    i{
+                      font-size: 22px;
+                    }
+
+                    &:disabled{
+                      color: $color-gray;
+                      cursor: not-allowed;
+                    }
+                  }
+                }
+              }
+            }
 
           }
       }

@@ -57,9 +57,6 @@
     <modal v-show="showModal" @save-btn-clicked="onclick_saveForm" @close-modal="closeModal"/>
   </main>
 
-
-
-
 </template>
 
 
@@ -161,12 +158,6 @@ export default {
     onclick_openSaveModal(){
       this.showModal= true
     },
-    updateItemValue(item, newValue){
-      item.value = newValue;
-    },
-    closeModal(){
-      this.showModal= false
-    },
     onclick_saveForm(name){
       this.formName = name
       this.showModal= false
@@ -174,8 +165,14 @@ export default {
         formName: this.formName,
         formItems: this.formItems
       });
-      console.log(this.formItems);
-    }
+    },
+    /***************|other methods|***** */
+    updateItemValue(item, newValue){
+      item.value = newValue;
+    },
+    closeModal(){
+      this.showModal= false
+    },
   }
 };
 </script>
